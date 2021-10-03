@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import styled from "styled-components";
 
 import Button from "../atoms/Button";
@@ -13,15 +14,19 @@ const Section = ({
 }) => {
   return (
     <Wrap backgroundImg={backgroundImg}>
-      <ItemText>
-        <Text text={title} type="h1" />
-        <Text text={description} />
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <Text text={title} type="h1" />
+          <Text text={description} />
+        </ItemText>
+      </Fade>
       <Buttons>
-        <ButtonGroup>
-          <Button text={leftBtnText} />
-          {rightBtnText && <Button text={rightBtnText} themeWhite={true} />}
-        </ButtonGroup>
+        <Fade bottom>
+          <ButtonGroup>
+            <Button text={leftBtnText} />
+            {rightBtnText && <Button text={rightBtnText} themeWhite={true} />}
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/assets/images/down-arrow.svg" />
       </Buttons>
     </Wrap>

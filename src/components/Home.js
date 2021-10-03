@@ -6,7 +6,26 @@ import Section from "./molecules/Section";
 const Home = () => {
   return (
     <Container>
-      <Section />
+      <Section
+        title="Model S"
+        description="order online for Touchless Delivery"
+        backgroundImg="model-s.jpg"
+        leftBtnText="Custom order"
+        rightBtnText="Existing Inventory"
+      />
+      <Section
+        title="Model S"
+        description="order online for Touchless Delivery"
+        backgroundImg="model-s.jpg"
+        leftBtnText="Custom order"
+        rightBtnText="Existing Inventory"
+      />
+      <Section
+        title="Model S"
+        description="order online for Touchless Delivery"
+        backgroundImg="model-s.jpg"
+        leftBtnText="Custom order"
+      />
     </Container>
   );
 };

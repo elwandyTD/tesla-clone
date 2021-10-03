@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
@@ -6,17 +7,17 @@ import CloseIcon from "@material-ui/icons/Close";
 import Link from "./atoms/Link";
 import ItemList from "./atoms/ItemList";
 
+import { selectCars } from "../features/car/carSlice";
+
 const Header = () => {
   const [burgerStatus, setBurgerStatus] = useState(false);
+  const cars = useSelector(selectCars);
 
   return (
     <Container>
       <Link imageSrc="images/logo.svg" />
       <Menu>
-        <Link text="Model S" />
-        <Link text="Model 3" />
-        <Link text="Model X" />
-        <Link text="Model Y" />
+        {cars && cars.map((car, index) => <Link key={index} text={car} />)}
       </Menu>
       <RightMenu>
         <Link text="Shop" />
@@ -27,14 +28,12 @@ const Header = () => {
         <CloseWrapper>
           <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWrapper>
+        {cars && cars.map((car, index) => <ItemList key={index} text={car} />)}
         <ItemList text="Existing Inventory" to="" />
         <ItemList text="Used Inventory" to="" />
         <ItemList text="Trade-in" to="" />
         <ItemList text="Cybertruck" to="" />
         <ItemList text="Roadaster" to="" />
-        <ItemList text="Existing Inventory" to="" />
-        <ItemList text="Existing Inventory" to="" />
-        <ItemList text="Existing Inventory" to="" />
       </BurgerNav>
     </Container>
   );
